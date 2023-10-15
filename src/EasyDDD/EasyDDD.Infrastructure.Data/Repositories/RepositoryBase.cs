@@ -1,15 +1,15 @@
-﻿using EasyDDD.SharedKernel.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using EasyDDD.Infrastructure.Data.DbContexts.BoundedContext;
+using EasyDDD.SharedKernel.Interfaces;
 
 namespace EasyDDD.Infrastructure.Data.Repositories
 {
-    public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class, IAggregateRoot
+    public class RepositoryBase<T> : IRepositoryBase<T> where T : class, IAggregateRoot
     {
-        protected readonly DbContext _dbContext;
+        protected readonly MyDbContext _dbContext;
 
-        public RepositoryBase(DbContext context)
+        public RepositoryBase(MyDbContext context)
         {
-            _dbContext=context;
+            _dbContext = context;
         }
 
         public async Task<T> AddAsync(T entity, CancellationToken cancellationToken = default)

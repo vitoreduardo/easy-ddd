@@ -1,16 +1,17 @@
-﻿using EasyDDD.SharedKernel.Interfaces;
+﻿using EasyDDD.Infrastructure.Data.DbContexts.BoundedContext;
+using EasyDDD.SharedKernel.Interfaces;
 using EasyDDD.SharedKernel.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace EasyDDD.Infrastructure.Data.Repositories
 {
-    public abstract class ReadRepositoryBase<T> : IReadRepositoryBase<T> where T : class, IAggregateRoot
+    public class ReadRepositoryBase<T> : IReadRepositoryBase<T> where T : class, IAggregateRoot
     {
-        protected readonly DbContext _dbContext;
+        protected readonly MyDbContext _dbContext;
 
-        public ReadRepositoryBase(DbContext dbContext)
+        public ReadRepositoryBase(MyDbContext dbContext)
         {
-            _dbContext=dbContext;
+            _dbContext = dbContext;
         }
 
         public async Task<T?> GetByIdAsync<TId>(TId id, CancellationToken cancellationToken = default) where TId : notnull

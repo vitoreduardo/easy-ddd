@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDDD.Api", "EasyDDD.Api\EasyDDD.Api.csproj", "{117E6C8D-6A2A-481A-AD09-FEDDC814EE7B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDDD.Application", "EasyDDD.Application\EasyDDD.Application.csproj", "{7E42CF96-0EDE-4361-9E01-24273871C202}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDDD.Domain", "EasyDDD.Domain\EasyDDD.Domain.csproj", "{B2CA0F09-36BD-4991-96BB-144888734200}"
@@ -15,16 +13,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDDD.Infrastructure.Data", "EasyDDD.Infrastructure.Data\EasyDDD.Infrastructure.Data.csproj", "{3CAFACC7-8106-40E3-9EDB-7CAD00D7F3E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyDDD.Api", "EasyDDD.Api\EasyDDD.Api.csproj", "{E9ADD32D-FFB5-486C-B971-DF99F9012D3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{117E6C8D-6A2A-481A-AD09-FEDDC814EE7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{117E6C8D-6A2A-481A-AD09-FEDDC814EE7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{117E6C8D-6A2A-481A-AD09-FEDDC814EE7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{117E6C8D-6A2A-481A-AD09-FEDDC814EE7B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7E42CF96-0EDE-4361-9E01-24273871C202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7E42CF96-0EDE-4361-9E01-24273871C202}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E42CF96-0EDE-4361-9E01-24273871C202}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,6 +37,10 @@ Global
 		{3CAFACC7-8106-40E3-9EDB-7CAD00D7F3E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CAFACC7-8106-40E3-9EDB-7CAD00D7F3E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CAFACC7-8106-40E3-9EDB-7CAD00D7F3E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9ADD32D-FFB5-486C-B971-DF99F9012D3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9ADD32D-FFB5-486C-B971-DF99F9012D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9ADD32D-FFB5-486C-B971-DF99F9012D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9ADD32D-FFB5-486C-B971-DF99F9012D3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

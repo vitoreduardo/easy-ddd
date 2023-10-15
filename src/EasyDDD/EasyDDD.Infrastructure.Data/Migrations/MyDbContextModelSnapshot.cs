@@ -23,16 +23,29 @@ namespace EasyDDD.Infrastructure.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("EasyDDD.Domain.Versions.SystemVersion", b =>
+            modelBuilder.Entity("EasyDDD.Domain.SystemVersions.SystemVersion", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("Id");
 
+                    b.Property<int>("Major")
+                        .HasMaxLength(1)
+                        .HasColumnType("int");
+
+                    b.Property<int>("Minor")
+                        .HasMaxLength(1)
+                        .HasColumnType("int");
+
+                    b.Property<int>("Patch")
+                        .HasMaxLength(1)
+                        .HasColumnType("int");
+
                     b.Property<string>("PreRelease")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.HasKey("Id")
                         .HasName("Id");

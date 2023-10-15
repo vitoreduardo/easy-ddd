@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EasyDDD.SharedKernel\EasyDDD.SharedKernel.csproj" />
+	  <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.4" />
   </ItemGroup>
 
 </Project>
