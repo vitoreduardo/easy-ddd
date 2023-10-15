@@ -1,7 +1,7 @@
 ﻿using EasyDDD.SharedKernel.Interfaces;
 using System.Linq.Expressions;
 
-namespace EasyDDD.SharedKernel.Model
+namespace EasyDDD.Domain.Spec
 {
     public abstract class BaseSpecification<T> : ISpecification<T>
     {
@@ -13,7 +13,6 @@ namespace EasyDDD.SharedKernel.Model
         protected BaseSpecification()
         {
         }
-
         public Expression<Func<T, bool>> Criteria { get; }
 
         public List<Expression<Func<T, object>>> Includes { get; } = new List<Expression<Func<T, object>>>();

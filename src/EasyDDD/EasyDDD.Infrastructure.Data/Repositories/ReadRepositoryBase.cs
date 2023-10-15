@@ -1,6 +1,6 @@
 ﻿using EasyDDD.Infrastructure.Data.DbContexts.BoundedContext;
+using EasyDDD.Infrastructure.Data.Spec;
 using EasyDDD.SharedKernel.Interfaces;
-using EasyDDD.SharedKernel.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace EasyDDD.Infrastructure.Data.Repositories
@@ -10,28 +10,21 @@ namespace EasyDDD.Infrastructure.Data.Repositories
         protected readonly MyDbContext _dbContext;
 
         public ReadRepositoryBase(MyDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
+            => _dbContext = dbContext;
 
         public async Task<T?> GetByIdAsync<TId>(TId id, CancellationToken cancellationToken = default) where TId : notnull
-        {
-            return await _dbContext.Set<T>().FindAsync(new object[] { id }, cancellationToken: cancellationToken);
-        }
+            => await _dbContext.Set<T>().FindAsync(new object[] { id }, cancellationToken: cancellationToken);
+
+        public async Task<T?> FirstOrDefaultAsync(ISpecification<T> specification, CancellationToken cancellationToken = default)
+            => await ApplySpecification(specification).FirstOrDefaultAsync();
 
         public async Task<List<T>> ListAsync(CancellationToken cancellationToken = default)
-        {
-            return await _dbContext.Set<T>().ToListAsync(cancellationToken);
-        }
+            => await _dbContext.Set<T>().ToListAsync(cancellationToken);
 
         public async Task<List<T>> ListAsync(ISpecification<T> specification)
-        {
-            return ApplySpecification(specification);
-        }
+            => await ApplySpecification(specification).ToListAsync();
 
-        private List<T> ApplySpecification(ISpecification<T> spec)
-        {
-            return SpecificationEvaluator<T>.GetQuery(_dbContext.Set<T>().AsQueryable(), spec).ToList();
-        }
+        private IQueryable<T> ApplySpecification(ISpecification<T> spec)
+            => SpecificationEvaluator<T>.GetQuery(_dbContext.Set<T>().AsQueryable(), spec);
     }
 }

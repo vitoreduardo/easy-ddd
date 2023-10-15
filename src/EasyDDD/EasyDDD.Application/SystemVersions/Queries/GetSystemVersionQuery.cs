@@ -1,5 +1,6 @@
 ﻿using EasyDDD.Application.SystemVersions.Queries.ViewModels;
 using EasyDDD.Domain.SystemVersions;
+using EasyDDD.Domain.SystemVersions.Spec;
 using EasyDDD.SharedKernel.Interfaces;
 using MediatR;
 
@@ -18,9 +19,14 @@ namespace EasyDDD.Application.SystemVersions.Queries
 
             public async Task<SystemVersionViewModel> Handle(GetSystemVersionQuery request, CancellationToken cancellationToken)
             {
-                var version = await _repository.ListAsync(cancellationToken);
+                var spec = new LastSystemVersionSpec();
+                var version = await _repository.FirstOrDefaultAsync(spec, cancellationToken);
+                if (version is null)
+                {
+                    return await Task.FromResult(new SystemVersionViewModel());
+                }
 
-                return await Task.FromResult(new SystemVersionViewModel(version.FirstOrDefault().Number()));
+                return await Task.FromResult(new SystemVersionViewModel(version.Number()));
             }
         }
     }

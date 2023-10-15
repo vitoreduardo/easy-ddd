@@ -7,6 +7,11 @@
             Number=number;
         }
 
+        public SystemVersionViewModel()
+        {
+            Number = string.Empty;
+        }
+
         public string Number { get; }
 
     }

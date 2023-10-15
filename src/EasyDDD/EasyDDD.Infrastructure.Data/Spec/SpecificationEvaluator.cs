@@ -1,7 +1,7 @@
 ﻿using EasyDDD.SharedKernel.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace EasyDDD.SharedKernel.Model
+namespace EasyDDD.Infrastructure.Data.Spec
 {
     public class SpecificationEvaluator<T> where T : class
     {
