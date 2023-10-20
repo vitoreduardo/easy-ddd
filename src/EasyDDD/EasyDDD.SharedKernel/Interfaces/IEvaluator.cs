@@ -1,4 +1,8 @@
-﻿namespace EasyDDD.SharedKernel.Interfaces
+﻿// <copyright file="IEvaluator.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace EasyDDD.SharedKernel.Interfaces
 {
     public interface IEvaluator
     {

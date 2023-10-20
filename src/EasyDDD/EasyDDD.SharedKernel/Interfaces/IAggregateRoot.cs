@@ -1,4 +1,8 @@
-﻿namespace EasyDDD.SharedKernel.Interfaces
+﻿// <copyright file="IAggregateRoot.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace EasyDDD.SharedKernel.Interfaces
 {
     /// <summary>
     /// Apply this marker interface only to aggregate root entities.
