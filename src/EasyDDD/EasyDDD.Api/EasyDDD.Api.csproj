@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EasyDDD.Application\EasyDDD.Application.csproj" />
     <ProjectReference Include="..\EasyDDD.Domain\EasyDDD.Domain.csproj" />
+    <ProjectReference Include="..\EasyDDD.Infrastructure.CrossCutting\EasyDDD.Infrastructure.CrossCutting.csproj" />
     <ProjectReference Include="..\EasyDDD.Infrastructure.Data\EasyDDD.Infrastructure.Data.csproj" />
   </ItemGroup>
 

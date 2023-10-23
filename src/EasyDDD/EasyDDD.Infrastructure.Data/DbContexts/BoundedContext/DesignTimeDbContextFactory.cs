@@ -9,6 +9,6 @@
         }
 
         public override MyDbContext CreateDbContext(string[] args)
-        => new MyDbContext(Options);
+        => new MyDbContext(Options, null);
     }
 }

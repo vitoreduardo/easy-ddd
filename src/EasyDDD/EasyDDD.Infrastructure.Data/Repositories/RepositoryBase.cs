@@ -16,23 +16,17 @@ namespace EasyDDD.Infrastructure.Data.Repositories
         {
             _dbContext.Set<T>().Add(entity);
 
-            await SaveChangesAsync(cancellationToken);
-
             return entity;
         }
 
         public async Task DeleteAsync(T entity, CancellationToken cancellationToken = default)
         {
             _dbContext.Set<T>().Remove(entity);
-
-            await SaveChangesAsync(cancellationToken);
         }
 
         public async Task UpdateAsync(T entity, CancellationToken cancellationToken = default)
         {
             _dbContext.Set<T>().Update(entity);
-
-            await SaveChangesAsync(cancellationToken);
         }
 
         public virtual async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

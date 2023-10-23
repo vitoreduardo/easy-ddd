@@ -13,7 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDDD.Infrastructure.Data", "EasyDDD.Infrastructure.Data\EasyDDD.Infrastructure.Data.csproj", "{3CAFACC7-8106-40E3-9EDB-7CAD00D7F3E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyDDD.Api", "EasyDDD.Api\EasyDDD.Api.csproj", "{E9ADD32D-FFB5-486C-B971-DF99F9012D3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDDD.Api", "EasyDDD.Api\EasyDDD.Api.csproj", "{E9ADD32D-FFB5-486C-B971-DF99F9012D3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyDDD.Infrastructure.CrossCutting", "EasyDDD.Infrastructure.CrossCutting\EasyDDD.Infrastructure.CrossCutting.csproj", "{9C1475F6-1029-4E96-8CB2-AF5D4159A241}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,12 +43,17 @@ Global
 		{E9ADD32D-FFB5-486C-B971-DF99F9012D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9ADD32D-FFB5-486C-B971-DF99F9012D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9ADD32D-FFB5-486C-B971-DF99F9012D3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C1475F6-1029-4E96-8CB2-AF5D4159A241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C1475F6-1029-4E96-8CB2-AF5D4159A241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C1475F6-1029-4E96-8CB2-AF5D4159A241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C1475F6-1029-4E96-8CB2-AF5D4159A241}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3CAFACC7-8106-40E3-9EDB-7CAD00D7F3E6} = {E6422567-9433-40FA-98C8-3B133FAD5816}
+		{9C1475F6-1029-4E96-8CB2-AF5D4159A241} = {E6422567-9433-40FA-98C8-3B133FAD5816}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94E27A8C-BB44-45BB-B642-C6628D8A4751}

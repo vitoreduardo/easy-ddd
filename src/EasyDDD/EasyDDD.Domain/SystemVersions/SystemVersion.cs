@@ -1,4 +1,5 @@
-﻿using EasyDDD.SharedKernel.Interfaces;
+﻿using EasyDDD.Domain.SystemVersions.Events;
+using EasyDDD.SharedKernel.Interfaces;
 using EasyDDD.SharedKernel.Model;
 
 namespace EasyDDD.Domain.SystemVersions
@@ -19,6 +20,8 @@ namespace EasyDDD.Domain.SystemVersions
             Minor = version.Minor;
             Patch = version.Patch;
             PreRelease = preRelease;
+
+            PublishEvent(new CandidateReleaseVersionUpdated(DateTime.Now, this.Number()));
         }
 
         public int Major { get; set; }

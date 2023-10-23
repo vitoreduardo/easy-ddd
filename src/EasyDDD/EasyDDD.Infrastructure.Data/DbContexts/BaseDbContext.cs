@@ -1,13 +1,20 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EasyDDD.SharedKernel.Interfaces;
+using EasyDDD.SharedKernel.Model;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace EasyDDD.Infrastructure.Data.DbContexts
 {
     public class BaseDbContext<TContext> : DbContext where TContext : DbContext
     {
-        public BaseDbContext(DbContextOptions<TContext> options)
+        private readonly IDomainEventDispatcher _dispatcher;
+
+        public BaseDbContext(
+            DbContextOptions<TContext> options,
+            IDomainEventDispatcher dispatcher)
             : base(options)
         {
+            _dispatcher=dispatcher;
         }
 
         public async Task<bool> CommitAsync()
@@ -24,16 +31,16 @@ namespace EasyDDD.Infrastructure.Data.DbContexts
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            //var entitiesWithEvents = ChangeTracker.Entries<IEntity<Guid>>()
-            //   .Select(e => e.Entity)
-            //   .Where(e => e.DomainEvents.Any())
-            //   .ToArray();
+            var entitiesWithEvents = ChangeTracker.Entries<Entity<Guid>>()
+               .Select(e => e.Entity)
+               .Where(e => e.Events.Any())
+               .ToArray();
 
-            //foreach (var entity in entitiesWithEvents)
-            //{
-            //    while (entity.DomainEvents.TryTake(out IDomainEvent @event))
-            //        await _dispatcher.DispatchAsync(@event).ConfigureAwait(false);
-            //}
+            foreach (var entity in entitiesWithEvents)
+            {
+                while (entity.Events.TryTake(out IDomainEvent @event))
+                    await _dispatcher.DispatchAsync(@event).ConfigureAwait(false);
+            }
 
             return await base.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
         }
