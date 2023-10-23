@@ -8,6 +8,7 @@ namespace EasyDDD.Api.Configuration
         public static IServiceCollection AddDependencyInjectionDefault(this IServiceCollection service)
         {
             service.AddScoped(typeof(IReadRepositoryBase<>), typeof(ReadRepositoryBase<>));
+            service.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
 
             return service;
         }
